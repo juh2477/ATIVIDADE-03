@@ -21,7 +21,63 @@
             <div class="topnav-right">
               <a class="item" href="PRODUTOS.html">Produtos</a>
               <a class="item" href="EMPRESA.html">Empresa</a>
-              <a class="item" href="CONTATO.html">Contato</a>
+              <!--MODAL-->
+            <button type="button" class="btn" id="contato" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Contato</button>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <!--Titulo/cabeçalho-->
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Entre em contato com a nossa equipe</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <!--INPUTS-->
+                      <div class="form-group">
+                        <label for="Nome">Nome</label>
+                        <input type="name" class="form-control" id="Nome" placeholder="Seu nome">
+                        <small id="nomeHelp" class="form-text text-muted">Insira seu nome completo</small>
+                    </div>
+                        <div class="form-group">
+                        <label for="Data">Data</label>
+                        <input type="date" class="form-control" id="Data" placeholder="Data de hoje">
+                    </div>
+                    <div class="form-group">
+                        <label for="Email">Endereço de email</label>
+                        <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Seu email">
+                        <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email, com ninguém.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="Telefone">Telefone</label>
+                        <input type="tel" class="form-control" id="Telefone" aria-describedby="TelefoneHelp" placeholder="Insira seu número de telefone">
+                        <small id="telefoneHelp" class="form-text text-muted">(DDD) + 00000-0000</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="Mensagem">Mensagem</label>
+                        <textarea class="form-control" name="Mensagem" id="Mensagem" cols="30" rows="5"></textarea>
+                    </div>
+                    <!--ALERTS-->
+                    <div class="alert alert-danger msg" role="alert" id="msgErro">
+                        Preencha todos os campos corretamene!
+                    </div>
+                    <div class="alert alert-success msg" role="alert" id="msgSucesso">
+                        Sua mensagem foi enviada com sucesso!
+                    </div>
+                    </form>
+                  </div>
+                  <!--BOTÕES MODAL-->
+                  <div class="modal-footer">
+                    <button type="button" class="btn" id="enviar" onclick="btnEnviar()">Enviar</button>
+                    <input type="reset" class="btn limpar" id="limpar" value="Limpar">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
             </div>
         </div>
         
@@ -61,7 +117,23 @@
             <a href="https://github.com/juh2477/ADA_pol-tica-de-privacidade.git">Termo de Privacidade</a>
         </div>
 
-        <!--SCRIPT-->
+        <!--SCRIPTS-->
+        <script type="text/javascript">
+            /*BOTÃO ENVIAR*/
+            const btnEnviar = function(){
+                let nome = document.getElementById('Nome').value
+                let data = document.getElementById('Data').value
+                let email = document.getElementById('Email').value
+                let telefone = document.getElementById('Telefone').value
+                let mensagem = document.getElementById('Mensagem').value
+  
+                if(nome == "" || data == "" || email == "" || telefone == "" || mensagem == ""){
+                    $('#msgErro').slideDown(400).delay(2000).slideUp(400)
+                }else{
+                    $('#msgSucesso').slideDown(400).delay(2000).slideUp(400)
+                }
+            }
+          </script>
         <script src="../JS/jquery-3.3.1.min.js"></script>
         <script src="../SRC/bootstrap-4.5.2-dist/js/bootstrap.min.js"></script>
     </body>
