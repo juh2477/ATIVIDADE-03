@@ -27,6 +27,15 @@
   
         <p class="titulo">Entre em contato conosco</p>
 
+        <!--ALERT-->
+        <div class="alert alert-danger msg" role="alert" id="msgErro">
+            Preencha todos os campos corretamene!
+        </div>
+        <div class="alert alert-success msg" role="alert" id="msgSucesso">
+            Sua mensagem foi enviada com sucesso!
+        </div>
+
+        <!--INPUTS-->
         <div class="container"> 
             <form>
                 <div class="form-group">
@@ -64,13 +73,15 @@
         </div>
         
         <!--SCRIPT-->
-        <script>
-        const btnEnviar = function(){
-            let nome = document.getElementById('Nome').value
-            let data = document.getElementById('Data').value
-            let email = document.getElementById('Email').value
-            let telefone = document.getElementById('Telefone').value
-            let mensagem = document.getElementById('Mensagem').value
+        
+        <script type="text/javascript">
+        
+            const btnEnviar = function(){
+                let nome = document.getElementById('Nome').value
+                let data = document.getElementById('Data').value
+                let email = document.getElementById('Email').value
+                let telefone = document.getElementById('Telefone').value
+                let mensagem = document.getElementById('Mensagem').value
 
                 if(nome == "" || data == "" || email == "" || telefone == "" || mensagem == ""){
                     $('#msgErro').slideDown(400).delay(2000).slideUp(400)
